@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "infer-kernels"
+version = "1.0.0"
+description = "CUDA inference kernels and a minimal LLM inference engine (mini-infer)"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1", "safetensors", "transformers>=4.51", "huggingface_hub"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+mini-infer = "engine.generate:main"
+
+# CUDA 源码位于仓库根目录的 csrc/，请用 pip install -e . 以可编辑方式安装
+[tool.setuptools]
+packages = ["infer_kernels", "engine"]
+package-dir = { "infer_kernels" = "python/infer_kernels", "engine" = "engine" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["python", "."]
+markers = ["e2e: loads a real model (needs Qwen/Qwen3-0.6B in the local HF cache)"]
