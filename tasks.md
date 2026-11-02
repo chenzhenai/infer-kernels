@@ -3,10 +3,10 @@
 ## 第一部分 · CUDA 基础与访存
 
 **阶段 0 · 环境准备（1 天，tag `v0.0`）**
-- [ ] `scripts/env_check.sh`：打印驱动、Toolkit、GPU、Compute Capability、PyTorch CUDA 版本
-- [ ] `tools/device_info.cu`：SM 数、Shared Memory、L2、寄存器，并计算理论带宽
-- [ ] `CMakeLists.txt`：按 GPU 选 `CMAKE_CUDA_ARCHITECTURES`（80 / 90a / 100a / 103a）
-- [ ] `bench/util.py`：warmup + CUDA Event 计时、带宽 / TFLOPS、结果写 CSV
+- [x] `scripts/env_check.sh`：打印驱动、Toolkit、GPU、Compute Capability、PyTorch CUDA 版本
+- [x] `tools/device_info.cu`：SM 数、Shared Memory、L2、寄存器，并计算理论带宽
+- [x] `CMakeLists.txt`：按 GPU 选 `CMAKE_CUDA_ARCHITECTURES`（80 / 90a / 100a / 103a）
+- [x] `bench/util.py`：warmup + CUDA Event 计时、带宽 / TFLOPS、结果写 CSV
 - 验收：理论带宽与 datasheet 差不超过 5%；`compute-sanitizer` 能报出越界
 
 **阶段 1 · 向量加法（1 天）**
